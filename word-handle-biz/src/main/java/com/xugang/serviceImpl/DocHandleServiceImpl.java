@@ -32,7 +32,6 @@ public class DocHandleServiceImpl implements DocHandleService {
             for (int i=0; i<paraTexts.length; i++) {
                 String line = paraTexts[i];
                 if(line.startsWith("中文名")){//药名
-                    medicineHandbookDTO = new MedicineHandbookDTO();
                     int start = line.indexOf("：");
                     int end = line.lastIndexOf("汉");
                     String name = line.substring(start+1,end-2);
@@ -58,7 +57,12 @@ public class DocHandleServiceImpl implements DocHandleService {
                                 }
                             }
                             if(!StringUtils.isEmpty(prescriptionNameResult)) {
-                                prescriptionMap.put(prescriptionNameResult, prescriptionWeightResult);
+                                try {
+                                    prescriptionMap.put(prescriptionNameResult,Double.parseDouble(prescriptionWeightResult));
+                                }
+                                catch (Exception e){
+                                    prescriptionMap.put(prescriptionNameResult,-1.0);
+                                }
                             }
                         }
                         //下一行
@@ -70,7 +74,7 @@ public class DocHandleServiceImpl implements DocHandleService {
                                 if (("0123456789").indexOf(achar) != -1)
                                 {
                                     resultNum += achar;
-                                }if(("gml").indexOf(achar) != -1){//读到单位停止
+                                }if(("gml片").indexOf(achar) != -1){//读到单位停止
                                     break;
                                 }
                             }
@@ -83,7 +87,10 @@ public class DocHandleServiceImpl implements DocHandleService {
                 if(line.startsWith("【功能主治】")){//功能主治
                     String function = line.replaceAll("【功能主治】","").replaceAll("\r","").replaceAll("\n","");
                     medicineHandbookDTO.setFunction(function);
+                }
+                if(line.startsWith("【批准文号】")){//读取完成
                     medicineHandbookDTOList.add(medicineHandbookDTO);
+                    medicineHandbookDTO = new MedicineHandbookDTO();
                 }
 //                if(line.startsWith("【规格】")){//单粒重量
 //                    char[] chars = line.toCharArray();

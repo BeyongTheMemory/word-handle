@@ -1,12 +1,13 @@
 package com.xugang.dto;
 
+import java.io.Serializable;
 import java.util.Map;
 
 /**
  * Created by XuGang on 2016/4/14.
  * 中成药汇编手册DTO
  */
-public class MedicineHandbookDTO {
+public class MedicineHandbookDTO implements Serializable{
     private String name;//药名
     private Map<String,Double> prescription;//处方<成分，克数>
     private int resultNum;//制成粒数

@@ -9,6 +9,8 @@
        http://www.springframework.org/schema/util
        http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <bean id="docHandleService" class="com.xugang.serviceImpl.DocHandleServiceImpl" />
+       <bean id="docHandleService" class="com.xugang.serviceImpl.DocHandleServiceImpl" />
+
+       <bean id="medicineService" class="com.xugang.serviceImpl.MedicineServiceImpl" />
 
 </beans>

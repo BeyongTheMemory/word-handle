@@ -1,4 +1,6 @@
 import com.xugang.dto.MedicineHandbookDTO;
+import com.xugang.enums.MedicineSourceType;
+import com.xugang.service.MedicineService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +18,12 @@ import java.util.List;
 public class DocHandleServiceTest {
     @Autowired
     private DocHandleService docHandleService;
+    @Autowired
+    private MedicineService medicineService;
     @Test
     public void hadleDocFromLocalTest(){
-        List<MedicineHandbookDTO> medicineHandbookDTOList = docHandleService.hadleDocFromLocal("C:\\Users\\ymm10\\Desktop\\【批量下载】国家中成药标准汇编外科妇科分册等\\国家中成药标准汇编\\国家中成药标准汇编口腔肿瘤儿科分册（缺口腔科部分）.doc");
+        List<MedicineHandbookDTO> medicineHandbookDTOList = docHandleService.hadleDocFromLocal("C:\\Users\\ymm10\\Desktop\\【批量下载】国家中成药标准汇编外科妇科分册等\\国家中成药标准汇编\\国家中成药标准汇编 内科 心系 分册.doc");
+        medicineService.save(medicineHandbookDTOList, MedicineSourceType.HEART_INTERNAL.getCode());
         System.out.print("x");
     }
 }
