@@ -197,6 +197,12 @@
                 <version>1.7.0</version>
             </dependency>
             <!-- log dependencies end -->
+            <!--分词-->
+            <dependency>
+                <groupId>org.ansj</groupId>
+                <artifactId>ansj_seg</artifactId>
+                <version>0.9</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
