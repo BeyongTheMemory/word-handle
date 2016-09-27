@@ -4,14 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class User {
-private String id;//用户ID
-private String like1;//最喜欢的类型
-private int count1;//该类型计数
-private String like2;//最喜欢的类型
-private int count2;//该类型计数
-private String like3;//最喜欢的类型
-private int count3;//该类型计数
-private Map<String,Integer> map;//存放所有浏览的新闻所属类别信息
+private String id;
+private String like1;
+private int count1;
+private String like2;
+private int count2;
+private String like3;
+private int count3;
+private Map<String,Integer> map;
 public User(){
 	this.map = new HashMap<String,Integer>();
 }

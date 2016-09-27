@@ -30,7 +30,7 @@ public class Word2VEC {
 
 	public static void main(String[] args) throws IOException {
         
-		//训练集
+
 		 Learn learn = new Learn();
 		 learn.learnFile(new File("E:\\bigdatatest\\train_data.txt"));
 		 learn.saveModel(new File("E:\\bigdatatest\\java_out"));
@@ -38,20 +38,20 @@ public class Word2VEC {
 		Word2VEC vec = new Word2VEC();
 		vec.loadJavaModel("E:\\bigdatatest\\java_out");
 
-		// System.out.println("中国" + "\t" +
-		// Arrays.toString(vec.getWordVector("中国")));
+		// System.out.println("?泄?" + "\t" +
+		// Arrays.toString(vec.getWordVector("?泄?")));
 		// ;
-		// System.out.println("毛泽东" + "\t" +
-		// Arrays.toString(vec.getWordVector("毛泽东")));
+		// System.out.println("???" + "\t" +
+		// Arrays.toString(vec.getWordVector("???")));
 		// ;
-		// System.out.println("足球" + "\t" +
-		// Arrays.toString(vec.getWordVector("足球")));
+		// System.out.println("????" + "\t" +
+		// Arrays.toString(vec.getWordVector("????")));
 
 		// Word2VEC vec2 = new Word2VEC();
 		// vec2.loadGoogleModel("library/vectors.bin") ;
 		//
 		//
-		String str = "中国";
+		String str = "娴嬭瘯";
 		System.out.println(str);
 		long start = System.currentTimeMillis();
 		for (int i = 0; i < 100; i++) {
@@ -61,12 +61,7 @@ public class Word2VEC {
 		System.out.println(System.currentTimeMillis() - start);
 
 		System.out.println(System.currentTimeMillis() - start);
-		// System.out.println(vec2.distance(str));
-		//
-		//
-		// //男人 国王 女人
-		// System.out.println(vec.analogy("邓小平", "毛泽东思想", "毛泽东"));
-		// System.out.println(vec2.analogy("毛泽东", "毛泽东思想", "邓小平"));
+
 	}
 
 	private HashMap<String, float[]> wordMap = new HashMap<String, float[]>();
@@ -75,13 +70,7 @@ public class Word2VEC {
 	private int size;
 	private int topNSize = 40;
 
-	/**
-	 * 加载模型
-	 *
-	 * @param path
-	 *            模型的路径
-	 * @throws IOException
-	 */
+
 	public void loadGoogleModel(String path) throws IOException {
 		DataInputStream dis = null;
 		BufferedInputStream bis = null;
@@ -90,9 +79,9 @@ public class Word2VEC {
 		try {
 			bis = new BufferedInputStream(new FileInputStream(path));
 			dis = new DataInputStream(bis);
-			// //读取词数
+			// //???????
 			words = Integer.parseInt(readString(dis));
-			// //大小
+			// //??小
 			size = Integer.parseInt(readString(dis));
 			String word;
 			float[] vectors = null;
@@ -120,13 +109,6 @@ public class Word2VEC {
 		}
 	}
 
-	/**
-	 * 加载模型
-	 *
-	 * @param path
-	 *            模型的路径
-	 * @throws IOException
-	 */
 	public void loadJavaModel(String path) throws IOException {
 		System.out.println("begin");
 	//	try (DataInputStream dis = new DataInputStream(new BufferedInputStream(new FileInputStream(path)))) {
@@ -173,7 +155,7 @@ public class Word2VEC {
 	private static final int MAX_SIZE = 50;
 
 	/**
-	 * 近义词
+	 * ?????
 	 *
 	 * @return
 	 */
@@ -207,7 +189,7 @@ public class Word2VEC {
 		return new TreeSet<WordEntry>(wordEntrys);
 	}
 
-	/*不详*/
+	/*????*/
 	private void insertTopN(String name, float score, List<WordEntry> wordsEntrys) {
 		// TODO Auto-generated method stub
 		if (wordsEntrys.size() < topNSize) {
@@ -319,7 +301,7 @@ public class Word2VEC {
 	}
 
 	/**
-	 * 得到词向量
+	 * ?????????
 	 *
 	 * @param word
 	 * @return
@@ -335,7 +317,7 @@ public class Word2VEC {
 	}
 
 	/**
-	 * 读取一个float
+	 * ??????float
 	 *
 	 * @param b
 	 * @return
@@ -350,7 +332,7 @@ public class Word2VEC {
 	}
 
 	/**
-	 * 读取一个字符串
+	 * ???????????
 	 *
 	 * @param dis
 	 * @return
@@ -383,7 +365,7 @@ public class Word2VEC {
 	     in.readFully(b);
 	     return new String(b,"UTF-8");
 		}catch(IOException e) {
-			// TODO 自动生成的 catch 块
+			// TODO ???????? catch ??
 			e.printStackTrace();
 			return null;
 		}

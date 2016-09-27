@@ -29,12 +29,12 @@ public class Learn {
 
     private Map<String, Neuron> wordMap = new HashMap<>();
     /**
-     * ÑµÁ·¶àÉÙ¸öÌØÕ÷
+     * è®­ç»ƒå¤šå°‘ä¸ªç‰¹å¾
      */
     private int layerSize = 200;
 
     /**
-     * ÉÏÏÂÎÄ´°¿Ú´óĞ¡
+     * ä¸Šä¸‹æ–‡çª—å£å¤§å°
      */
     private int window = 5;
 
@@ -133,7 +133,7 @@ public class Learn {
     }
 
     /**
-     * skip gram Ä£ĞÍÑµÁ·
+     * skip gram æ¨¡å‹è®­ç»ƒ
      * @param sentence
      * @param index
      */
@@ -150,7 +150,7 @@ public class Learn {
                 continue;
             }
 
-            double[] neu1e = new double[layerSize];//Îó²îÏî
+            double[] neu1e = new double[layerSize];//è¯¯å·®é¡¹
             //HIERARCHICAL SOFTMAX
             List<Neuron> neurons = word.neurons;
             WordNeuron we = sentence.get(c);
@@ -188,7 +188,7 @@ public class Learn {
     }
 
     /**
-     * ´Ê´üÄ£ĞÍ
+     * è¯è¢‹æ¨¡å‹
      * @param index
      * @param sentence
      * @param b
@@ -198,8 +198,8 @@ public class Learn {
         int a, c = 0;
 
         List<Neuron> neurons = word.neurons;
-        double[] neu1e = new double[layerSize];//Îó²îÏî
-        double[] neu1 = new double[layerSize];//Îó²îÏî
+        double[] neu1e = new double[layerSize];//è¯¯å·®é¡¹
+        double[] neu1 = new double[layerSize];//è¯¯å·®é¡¹
         WordNeuron last_word;
 
         for (a = b; a < window * 2 + 1 - b; a++)
@@ -260,7 +260,7 @@ public class Learn {
     }
 
     /**
-     * Í³¼Æ´ÊÆµ
+     * ç»Ÿè®¡è¯é¢‘
      * @param file
      * @throws IOException
      */
@@ -295,7 +295,7 @@ public class Learn {
     }
 
     /**
-     * ¸ù¾İÎÄ¼şÑ§Ï°
+     * æ ¹æ®æ–‡ä»¶å­¦ä¹ 
      * @param file
      * @throws IOException 
      */
@@ -303,7 +303,7 @@ public class Learn {
         readVocab(file);
         new Haffman(layerSize).make(wordMap.values());
         
-        //²éÕÒÃ¿¸öÉñ¾­Ôª
+        //æŸ¥æ‰¾æ¯ä¸ªç¥ç»å…ƒ
         for (Neuron neuron : wordMap.values()) {
             ((WordNeuron)neuron).makeNeurons() ;
         }
@@ -312,7 +312,7 @@ public class Learn {
     }
 
     /**
-     * ±£´æÄ£ĞÍ
+     * ä¿å­˜æ¨¡å‹
      */
   public void saveModel(File file) {
         // TODO Auto-generated method stub
@@ -420,7 +420,7 @@ public class Learn {
     	 out.write(b);
 		out.writeInt(b.length);
 	} catch (IOException e) {
-		// TODO ×Ô¶¯Éú³ÉµÄ catch ¿é
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„ catch å—
 		e.printStackTrace();
 	}
      

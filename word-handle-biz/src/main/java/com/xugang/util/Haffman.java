@@ -7,11 +7,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.TreeSet;
 
-/**
- * ¹¹½¨Haffman±àÂëÊ÷
- * @author ansj
- *
- */
 public class Haffman {
     private int layerSize;
 
@@ -19,7 +14,7 @@ public class Haffman {
         this.layerSize = layerSize;
     }
 
-    private TreeSet<Neuron> set = new TreeSet<>();
+    private TreeSet<Neuron> set = new TreeSet<Neuron>();
 
     public void make(Collection<Neuron> neurons) {
         set.addAll(neurons);
